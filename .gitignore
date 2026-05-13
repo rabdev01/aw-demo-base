@@ -1,0 +1,32 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Publish output
+publish/
+out/
+
+# ASP.NET Core secrets
+**/appsettings.*.local.json
+**/secrets.json
+
+# SQL Server backup (downloaded at container startup)
+.devcontainer/mssql/*.bak
+
+# SQL Edge standalone setup (sql-server/)
+sql-server/backups/*.bak
+sql-server/data/
+
+# Test coverage output
+**/coverage.json
+**/coverage.cobertura.xml
+TestResults/
+
+# OS
+.DS_Store
+Thumbs.db
+
+temp/

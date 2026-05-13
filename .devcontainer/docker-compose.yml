@@ -1,0 +1,30 @@
+services:
+  db:
+    build:
+      context: ./mssql
+    environment:
+      - ACCEPT_EULA=1
+      - MSSQL_SA_PASSWORD=P@ssw0rd123!
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql/data
+      - mssql-backups:/var/opt/mssql/backups
+    networks:
+      - devnet
+
+  app:
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces/AdventureWorks:cached
+    command: sleep infinity
+    networks:
+      - devnet
+
+networks:
+  devnet:
+
+volumes:
+  mssql-data:
+  mssql-backups:
